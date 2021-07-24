@@ -22,9 +22,17 @@ contract NFTplanet is ERC721URIStorage {
         address owner;
         uint256 slots;
         uint256 nftCounter;
+        bool warRequest;
+        WarProposal warProposal;
         NftArt[] allNfts;
     }
     
+    struct WarProposal{
+        bool isOpen;
+        uint256 adversaryId;
+        bool winner;
+    }
+
     struct NftArt{
         address contractAddress;
         uint256 id;

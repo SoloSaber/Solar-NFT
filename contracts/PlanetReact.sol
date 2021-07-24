@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 
 import "./NFTplanet.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "./PlanetERC20.sol";
 
 contract PlanetReact is NFTplanet{
     event NFTadded();
@@ -43,7 +44,6 @@ contract PlanetReact is NFTplanet{
         Planet storage currentPlanet = allPlanets[planetId];
         currentPlanet.allNfts.push();
         emit slotAdded();
-
     }
 
     // /// @notice trasnfer planets or nft's
@@ -63,28 +63,21 @@ contract PlanetReact is NFTplanet{
     //     currentPlanet.nftCounter--;   
     // }
 
-/*
+
     /// @notice decalre a war to another user that have all of his 5 slots 
-    /// @param Documents a parameter just like in doxygen (must be followed by parameter name)
-    /// @return Documents the return variables of a contract’s function state variable
-    function declareWar() {}
+    function declareWar(uint256 adversaryPlanetId, uint256 selfPlanetId)public {
+
+    }
 
     /// @notice decline 
     /// @dev Explain to a developer any extra details
-    /// @param Documents a parameter just like in doxygen (must be followed by parameter name)
-    /// @return Documents the return variables of a contract’s function state variable
     function declineWar() {}
 
     /// @notice accept
-    /// @param Documents a parameter just like in doxygen (must be followed by parameter name)
-    /// @return Documents the return variables of a contract’s function state variable
     function acceptWar() {}
 
     /// @notice give the choice of add slot and make his planet bigger or have a new planet randomly created
-    /// @dev Explain to a developer any extra details
-    /// @param Documents a parameter just like in doxygen (must be followed by parameter name)
-    /// @return Documents the return variables of a contract’s function state variable
     function choice() {}
-    */
+   
 }
 
