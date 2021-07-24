@@ -64,20 +64,24 @@ contract PlanetReact is NFTplanet{
     // }
 
 
-    /// @notice decalre a war to another user that have all of his 5 slots 
-    function declareWar(uint256 adversaryPlanetId, uint256 selfPlanetId)public {
+    /// @notice declare a war to another user that have all of his 5 slots 
+/*     function declareWar(uint256 adversaryPlanetId, uint256 selfPlanetId) public {
+        
+        WarProposal.isOpen = adversaryPlanetId;
+        WarProposal.adversaryId;
 
-    }
+
+    } */
 
     /// @notice decline 
-    /// @dev Explain to a developer any extra details
+ /*    /// @dev Explain to a developer any extra details
     function declineWar() {}
 
     /// @notice accept
     function acceptWar() {}
 
     /// @notice give the choice of add slot and make his planet bigger or have a new planet randomly created
-    function choice() {}
+    function choice() {} */
    
 }
 
