@@ -68,6 +68,8 @@ class ThreeScene extends Component {
 
   async componentDidMount() {
 
+    console.log("quering the graph");
+    this.queryGraph();
     this.setState({contract: this.context.instance});
     this.setState({accounts: await this.context.accountsPromise});
 
@@ -206,7 +208,7 @@ class ThreeScene extends Component {
   addPlanet = (planet) => {
     this.planetArray.push(planet);
     this.setState({planets: planet}, () => {
-      console.log(this.state.planets);
+      //console.log(this.state.planets);
     });
   }
 
@@ -235,7 +237,7 @@ class ThreeScene extends Component {
       description: NFTDescription,
       image: NFTFile
     });
-    console.log(metadata.url);
+   // console.log(metadata.url);
 
     this.state.contract.methods.mintPlanet(metadata.url, NFTName)
         .send({from: this.state.accounts[0], value: 0.01*10**18})
@@ -307,17 +309,17 @@ class ThreeScene extends Component {
 
 
   queryGraph = () => {
-    const APIURL = "https://gateway.thegraph.com/api/<API_KEY>/subgraphs/id/<SUBGRAPH_ID>\nx";
+    const APIURL = "https://api.studio.thegraph.com/query/3145/ks/v0.0.7";
 
     const tokensQuery = `
   query {
-    tokens {
-      id
-      tokenID
-      contentURI
-      metadataURI
-    }
+  transfers(first: 5) {
+    id
+    from
+    to
+    tokenId
   }
+}
 `
 
     const client = new ApolloClient({
